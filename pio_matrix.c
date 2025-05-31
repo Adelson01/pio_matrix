@@ -54,7 +54,13 @@ uint32_t cor_rgb(double r, double g, double b) {
 //DESENVOLVEDOR GUILHERME
 
 //FUNÇÃO PARA MANIPULAR A MATRIX
-
+void desenhar_na_matriz(PIO pio, uint sm, double *desenho_ativo, double r, double g, double b) {
+    for (int i = 0; i < NUM_PIXELS; i++) {
+        double intensity = desenho_ativo[i];
+        // A cor final é a intensidade do pixel multiplicada pela cor base (r, g, b)
+        pio_sm_put_blocking(pio, sm, cor_rgb(intensity * r, intensity * g, intensity * b) << 8u);
+    }
+}
 
 
 
