@@ -18,9 +18,8 @@ volatile int frame_index = 0;   // Controla qual desenho da sequência mostrar
 
 //  DEBOUNCE DA INTERRUPÇAÕ
 
-
-
-
+const uint32_t DEBOUNCE_DELAY_MS = 250;
+volatile uint32_t last_interrupt_time = 0;
 
 
 //  DESENHOS EXIBIDOS NA MATRIZ
