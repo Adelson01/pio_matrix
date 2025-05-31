@@ -32,9 +32,12 @@ volatile int frame_index = 0;   // Controla qual desenho da sequência mostrar
 
 //FUNCOES DE DEFINIÇÃO RGB
 
-
-
-
+uint32_t cor_rgb(double r, double g, double b) { 
+    uint8_t R = (uint8_t)(r * 255.0);
+    uint8_t G = (uint8_t)(g * 255.0);
+    uint8_t B = (uint8_t)(b * 255.0);
+    return ((uint32_t)(G) << 16) | ((uint32_t)(R) << 8) | (uint32_t)(B);
+}
 
 
 //DESENVOLVEDOR GUILHERME
