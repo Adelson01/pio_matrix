@@ -67,7 +67,11 @@ void desenhar_na_matriz(PIO pio, uint sm, double *desenho_ativo, double r, doubl
 
 
 //FUNÇÃO LIMPAR A MATRIZ
-
+void limpar_matriz(PIO pio, uint sm) {
+    for (int i = 0; i < NUM_PIXELS; i++) {
+        pio_sm_put_blocking(pio, sm, 0);
+    }
+}
 
 
 
