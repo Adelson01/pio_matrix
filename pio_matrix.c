@@ -68,7 +68,22 @@ uint32_t cor_rgb(double r, double g, double b) {
 
 
 //FUNÇÃO DE INTERRUPÇÃO
+void button_irq_handler(uint gpio, uint32_t events) {
+    uint32_t current_time = time_us_32();
+    if ((current_time - last_interrupt_time) < (DEBOUNCE_DELAY_MS * 1000)) {
+        return; 
+    }
+    last_interrupt_time = current_time;
 
+    if (modo_programa == 0) { 
+        frame_index = 0;
+        if (gpio == BUTTON_SEQ_1_PIN) {
+            modo_programa = 1;
+        } else if (gpio == BUTTON_SEQ_2_PIN) {
+            modo_programa = 2;
+        }
+    }
+}
 
 
 
